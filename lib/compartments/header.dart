@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../widgets/navigation_items.dart';
 
 class Header extends StatefulWidget {
@@ -16,8 +17,9 @@ class _HeaderState extends State<Header> {
     return SliverAppBar(
       pinned: true,
       collapsedHeight: 101.0,
-      expandedHeight: 110,
-      backgroundColor: Colors.white, // Color after collapse
+      expandedHeight: 150,
+      backgroundColor:
+          const Color.fromARGB(99, 0, 0, 0), // Color after collapse
       flexibleSpace: FlexibleSpaceBar(
         titlePadding: const EdgeInsetsDirectional.only(
           // top: 12.5,
@@ -27,15 +29,18 @@ class _HeaderState extends State<Header> {
         expandedTitleScale: 1.1,
         centerTitle: true,
         background: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Colors.blue,
-                Colors.green
-              ], // Customize your gradient colors here
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
+          color: Colors.white,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text(
+                'Hello! Welcome to WellDone Inspections.',
+                style: GoogleFonts.robotoCondensed(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
           ),
         ),
         title: Row(
@@ -75,16 +80,6 @@ class _HeaderState extends State<Header> {
           ],
         ),
       ),
-      // toolbarHeight: 95,
-      // actions: [
-      //   NavigationItems('About'),
-      //   NavigationItems('Services'),
-      //   NavigationItems('Resources'),
-      //   NavigationItems('Press'),
-      //   NavigationItems('Work'),
-      //   NavigationItems('Career'),
-      //   NavigationItems('Contact'),
-      // ],
     );
   }
 }

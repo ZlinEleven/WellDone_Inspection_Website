@@ -30,7 +30,7 @@ class _NavigationItemState extends ConsumerState<NavigationItems> {
           style: TextStyle(
             fontSize: 16.0,
             fontWeight: FontWeight.w900,
-            color: isExpanded ? Colors.white : Colors.black,
+            color: !isExpanded ? Colors.white : Colors.black,
           ),
         ),
       ),

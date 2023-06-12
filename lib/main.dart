@@ -75,9 +75,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:website/compartments/footer.dart';
 import 'package:website/compartments/header.dart';
 import 'package:website/providers/is_expanded.dart';
-import 'package:website/widgets/navigation_items.dart';
+
+import 'compartments/about_us.dart';
+import 'compartments/services.dart';
 
 void main() {
   runApp(
@@ -120,6 +123,8 @@ class _MyAppState extends ConsumerState<MyApp> {
 
   @override
   Widget build(context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return MaterialApp(
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
@@ -136,9 +141,30 @@ class _MyAppState extends ConsumerState<MyApp> {
       home: Scaffold(
         body: CustomScrollView(
           controller: _scrollController,
-          slivers: const [
-            Header(),
-            SliverToBoxAdapter(child: SizedBox(height: 2000)),
+          slivers: [
+            const Header(),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: screenHeight - 155,
+                child: Image.network(
+                  'https://image.cnbcfm.com/api/v1/image/106811484-1608045351058-gettyimages-1126750618-dsc_1540.jpeg?v=1608045431',
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            const SliverToBoxAdapter(
+              child: Padding(
+                padding: EdgeInsets.only(top: 50, left: 100.0, bottom: 20),
+                child: AboutUs(),
+              ),
+            ),
+            const SliverToBoxAdapter(
+              child: Services(),
+            ),
+            SliverToBoxAdapter(
+              child: Footer(),
+            ),
+            // const SliverToBoxAdapter(child: SizedBox(height: 2000)),
           ],
         ),
       ),

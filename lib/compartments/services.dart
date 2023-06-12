@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/service_item.dart';
+import '../widgets/service_card.dart';
 
 class Services extends StatelessWidget {
   const Services({super.key});
@@ -15,7 +15,7 @@ class Services extends StatelessWidget {
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            const Color.fromARGB(255, 224, 187, 187),
+            Color.fromARGB(255, 224, 187, 187),
             Color.fromARGB(103, 224, 187, 187)
           ],
           begin: Alignment.topLeft,
@@ -33,28 +33,25 @@ class Services extends StatelessWidget {
                 ),
           ),
           const SizedBox(height: 150),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 350.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                ServiceItem(
-                  serviceName: 'TR1 Statement of Responsibility',
-                  serviceDescription:
-                      'The main technical report to be filed with the NYC DOB.',
-                ),
-                ServiceItem(
-                  serviceName: 'TR5 Pile Driving',
-                  serviceDescription:
-                      'The technical report for the Pile Driving and Deep Foundation Elements.',
-                ),
-                ServiceItem(
-                  serviceName: 'TR8 Energy Code Compliance',
-                  serviceDescription:
-                      'The technical report for the Energy Code Compliance Inspections.',
-                ),
-              ],
-            ),
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ServiceCard(
+                title: 'TR1 Statement of Responsibility',
+                description:
+                    'The main technical report to be filed with the NYC DOB.',
+              ),
+              ServiceCard(
+                title: 'TR5 Pile Driving',
+                description:
+                    'The technical report for the Pile Driving and Deep Foundation Elements.',
+              ),
+              ServiceCard(
+                title: 'TR8 Energy Code Compliance',
+                description:
+                    'The technical report for the Energy Code Compliance Inspections.',
+              ),
+            ],
           ),
         ],
       ),
