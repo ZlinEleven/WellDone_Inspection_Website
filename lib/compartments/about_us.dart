@@ -9,55 +9,62 @@ class AboutUs extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return Container(
-      margin: const EdgeInsets.only(
-        right: 600,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Row(
-            children: [
-              Text(
-                'About Us',
-                style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-              ),
-              const Expanded(
-                child: Divider(
-                    indent: 10,
-                    endIndent: 10,
-                    thickness: 1,
-                    height: 5,
-                    color: Colors.black38),
-              ),
-            ],
-          ),
           SizedBox(
-            height: 200,
-            width: 800,
-            child: Text(
-              aboutUsText,
-              style: GoogleFonts.ebGaramond(
-                fontSize: 20,
-              ),
-              softWrap: true,
+            width: 875,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      'About Us',
+                      style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                    ),
+                    const Expanded(
+                      child: Divider(
+                          indent: 10,
+                          endIndent: 10,
+                          thickness: 1,
+                          height: 5,
+                          color: Colors.black38),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 200,
+                  width: 800,
+                  child: Text(
+                    aboutUsText,
+                    style: GoogleFonts.ebGaramond(
+                      fontSize: 20,
+                    ),
+                    softWrap: true,
+                  ),
+                ),
+                const Row(
+                  children: [
+                    Expanded(
+                      child: Divider(
+                        endIndent: 10,
+                        thickness: 1,
+                        height: 5,
+                        color: Colors.black38,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
-          const Row(
-            children: [
-              Expanded(
-                child: Divider(
-                  endIndent: 10,
-                  thickness: 1,
-                  height: 5,
-                  color: Colors.black38,
-                ),
-              ),
-            ],
-          ),
+          const FlutterLogo(size: 300),
         ],
       ),
     );

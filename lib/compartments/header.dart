@@ -14,6 +14,8 @@ class Header extends StatefulWidget {
 class _HeaderState extends State<Header> {
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return SliverAppBar(
       pinned: true,
       collapsedHeight: 101.0,
@@ -21,12 +23,10 @@ class _HeaderState extends State<Header> {
       backgroundColor:
           const Color.fromARGB(99, 0, 0, 0), // Color after collapse
       flexibleSpace: FlexibleSpaceBar(
-        titlePadding: const EdgeInsetsDirectional.only(
-          // top: 12.5,
-          start: 145,
-          end: 145,
+        titlePadding: EdgeInsetsDirectional.symmetric(
+          horizontal: screenWidth > 1280 ? (screenWidth - 1280) / 2 : 0,
         ),
-        expandedTitleScale: 1.1,
+        expandedTitleScale: 1.2,
         centerTitle: true,
         background: Container(
           color: Colors.white,
@@ -34,7 +34,7 @@ class _HeaderState extends State<Header> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Text(
-                'Hello! Welcome to WellDone Inspections.',
+                'Welcome to WellDone Inspections.',
                 style: GoogleFonts.robotoCondensed(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -45,29 +45,17 @@ class _HeaderState extends State<Header> {
         ),
         title: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const FlutterLogo(
-                size: 68.0), // Replace this with your company logo
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            SizedBox(
+              height: 80,
+              width: 160,
+              child:
+                  Image.asset('images/logo_with_motto.png', fit: BoxFit.cover),
+            ),
+            const Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(
-                  'Listen Better.',
-                  style: Theme.of(context).textTheme.titleMedium,
-                ),
-                Text(
-                  'Plan Better.',
-                  style: Theme.of(context).textTheme.titleMedium,
-                ),
-                Text('Build Better.',
-                    style: Theme.of(context).textTheme.titleMedium),
-              ],
-            ),
-            const Spacer(),
-            const Row(
-              children: [
-                // NavigationBar(destinations: destinations)
                 NavigationItems('About'),
                 NavigationItems('Services'),
                 NavigationItems('Resources'),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../providers/is_expanded.dart';
 
@@ -27,9 +28,10 @@ class _NavigationItemState extends ConsumerState<NavigationItems> {
         },
         child: Text(
           widget.title,
-          style: TextStyle(
+          style: GoogleFonts.openSans(
             fontSize: 16.0,
-            fontWeight: FontWeight.w900,
+            fontWeight: FontWeight.bold,
+            // fontWeight: FontWeight.w900,
             color: !isExpanded ? Colors.white : Colors.black,
           ),
         ),

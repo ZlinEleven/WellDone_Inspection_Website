@@ -1,110 +1,139 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class Footer extends StatelessWidget {
+Color footerTextColor = const Color.fromARGB(255, 204, 204, 0);
+
+class Footer extends StatefulWidget {
+  @override
+  State<Footer> createState() => _FooterState();
+}
+
+class _FooterState extends State<Footer> {
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Column(
       children: [
         Container(
-          // decoration: BoxDecoration(
-          //   image: DecorationImage(
-          //     image: const NetworkImage(
-          //         'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/West_side_of_Manhattan_from_Hudson_Commons_%2895103p%29.jpg/1200px-West_side_of_Manhattan_from_Hudson_Commons_%2895103p%29.jpg'),
-          //     fit: BoxFit.cover,
-          //     colorFilter: ColorFilter.mode(
-          //         Colors.black.withOpacity(0.5), BlendMode.colorBurn),
-          //   ),
-          // ),
-          color: Colors.grey,
-          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-          child: const Row(
+          height: 320,
+          color: const Color.fromARGB(255, 0, 102, 102),
+          padding: EdgeInsets.symmetric(
+              vertical: 50,
+              horizontal: screenWidth > 1142 ? (screenWidth - 1142) / 2 : 0),
+          child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Expanded(
+              // SizedBox(width: screenWidth * 0.1),
+              SizedBox(
+                width: 300,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'About Us',
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    SizedBox(
+                      height: 80,
+                      width: 160,
+                      child: Image.asset('images/logo_with_motto.png',
+                          fit: BoxFit.cover),
                     ),
-                    Text('Company Overview'),
-                    Text('Our Team'),
-                    Text('Testimonials'),
+                    Text(
+                      'WellDone Inspection Inc is a DOB Class Two special inspections agency committed to providing comprehensive engineering reports.',
+                      style: GoogleFonts.aleo(
+                        height: 2,
+                        color: footerTextColor,
+                      ),
+                    ),
                   ],
                 ),
               ),
-              Expanded(
+              // SizedBox(width: screenWidth * 0.05),
+              const VerticalDivider(
+                width: 10,
+                thickness: 1,
+                indent: 10,
+                endIndent: 10,
+                color: Colors.black38,
+              ),
+              // SizedBox(width: screenWidth * 0.05),
+              SizedBox(
+                width: 300,
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
                       'Services',
-                      style: TextStyle(
-                        fontSize: 16,
+                      style: GoogleFonts.oswald(
+                        fontSize: 24,
+                        color: Colors.black,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 8),
-                    Text('Service 1'),
-                    Text('Service 2'),
-                    Text('Service 3'),
+                    const SizedBox(height: 16),
+                    Text('Statement of Responsibility',
+                        style: GoogleFonts.aleo(fontSize: 16)),
+                    const SizedBox(height: 16),
+                    Text('Pile Driving', style: GoogleFonts.aleo(fontSize: 16)),
+                    const SizedBox(height: 16),
+                    Text('Energy Code Compliance',
+                        style: GoogleFonts.aleo(fontSize: 16)),
                   ],
                 ),
               ),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Resources',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+              // SizedBox(width: screenWidth * 0.05),
+              const VerticalDivider(
+                width: 10,
+                thickness: 1,
+                indent: 10,
+                endIndent: 10,
+                color: Colors.black38,
+              ),
+
+              // SizedBox(width: screenWidth * 0.05),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Contact',
+                    style: GoogleFonts.oswald(
+                      fontSize: 24,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  Row(
+                    children: [
+                      const Icon(Icons.location_on),
+                      const SizedBox(width: 16),
+                      Text('10 Hallets Point, Astoria, NY, 11102',
+                          style: GoogleFonts.merriweather(fontSize: 16)),
+                    ],
+                  ),
+                  const SizedBox(height: 16),
+                  Row(
+                    children: [
+                      const Icon(Icons.email),
+                      const SizedBox(width: 16),
+                      Text(
+                        'welldoneinspection@gmail.com',
+                        style: GoogleFonts.merriweather(fontSize: 16),
+                        softWrap: true,
                       ),
-                    ),
-                    SizedBox(height: 8),
-                    Text('Blog'),
-                    Text('Guides'),
-                    Text('FAQs'),
-                  ],
-                ),
+                    ],
+                  ),
+                  const SizedBox(height: 16),
+                  Row(
+                    children: [
+                      const Icon(Icons.call),
+                      const SizedBox(width: 16),
+                      Text('(917) 213-1886',
+                          style: GoogleFonts.merriweather(fontSize: 16)),
+                    ],
+                  ),
+                ],
               ),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Contact',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 8),
-                    Row(
-                      children: [
-                        Icon(Icons.location_on),
-                        Text('10 Hallets Point, Astoria, NY, 11102'),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Icon(Icons.email),
-                        Text('welldoneinspection@gmail.com'),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Icon(Icons.call),
-                        Text('(917) 213-1886'),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+              // SizedBox(width: screenWidth * 0.1),
             ],
           ),
         ),
@@ -112,26 +141,21 @@ class Footer extends StatelessWidget {
           width: double.infinity,
           height: 50,
           color: const Color.fromARGB(255, 56, 56, 56),
-          child: const Row(
+          child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              FlutterLogo(), // Insert comapny logo
-              SizedBox(width: 16),
               Text(
                 '© 2023 WellDone Inspection, Inc. All rights reserved.',
-                style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
+                style: Theme.of(context).textTheme.bodySmall,
               ),
-              SizedBox(width: 8),
-              Text(
+              const SizedBox(width: 8),
+              const Text(
                 'Terms of Service',
                 style: TextStyle(fontSize: 14, color: Colors.blue),
               ),
-              SizedBox(width: 8),
-              Text(
+              const SizedBox(width: 8),
+              const Text(
                 'Privacy Policy',
                 style: TextStyle(fontSize: 14, color: Colors.blue),
               ),
