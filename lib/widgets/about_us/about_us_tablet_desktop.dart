@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:website/widgets/about_us/about_us.dart';
 
-const aboutUsText =
-    'WellDone Inspection Inc. is a full service quality control company and registered with DOB Class Two, providing comprehensive special inspections. Our engineers and inspectors are experienced in the field and are certified by ACI, ICC and AWS. We are comitted to provide effective Civil, Structural and Mechanical Inspections that are in compliance with codes and standard thereby maintaining public safety and client satisfaction. We provide comprehensive reports in a timely fashion that itemize issues and assign responsibility.';
-
-class AboutUs extends StatelessWidget {
-  const AboutUs({super.key});
+class AboutUsTabletDesktop extends StatelessWidget {
+  const AboutUsTabletDesktop({super.key});
 
   @override
   Widget build(context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20.0),
+      padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 40),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
-            width: 875,
+            width: screenWidth < 1255 ? screenWidth - 380 : 875,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -23,6 +23,7 @@ class AboutUs extends StatelessWidget {
                   children: [
                     Text(
                       'About Us',
+                      softWrap: true,
                       style: Theme.of(context).textTheme.displaySmall!.copyWith(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
@@ -39,14 +40,12 @@ class AboutUs extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  height: 200,
-                  width: 800,
+                  width: screenWidth < 1255 ? screenWidth - 420 : 800,
                   child: Text(
                     aboutUsText,
                     style: GoogleFonts.ebGaramond(
                       fontSize: 20,
                     ),
-                    softWrap: true,
                   ),
                 ),
                 const Row(
@@ -64,7 +63,14 @@ class AboutUs extends StatelessWidget {
               ],
             ),
           ),
-          const FlutterLogo(size: 300),
+          Container(
+            width: 250,
+            height: 250,
+            decoration: BoxDecoration(
+                border: Border.all(),
+                borderRadius: BorderRadius.circular(16.0)),
+            child: const Center(child: Text('Put image here')),
+          ),
         ],
       ),
     );

@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:website/compartments/footer.dart';
-import 'package:website/compartments/header.dart';
+import 'package:website/widgets/header/header.dart';
 import 'package:website/providers/is_expanded.dart';
-import 'compartments/about_us.dart';
+import 'package:website/widgets/hero_section/hero_section.dart';
+import 'widgets/about_us/about_us.dart';
 import 'compartments/services.dart';
 
 void main() {
@@ -70,26 +71,21 @@ class _MyAppState extends ConsumerState<MyApp> {
       home: Scaffold(
         body: CustomScrollView(
           controller: _scrollController,
-          slivers: [
-            const Header(),
+          slivers: const [
+            Header(),
+            SliverToBoxAdapter(child: HeroSection()),
             SliverToBoxAdapter(
-              child: SizedBox(
-                height: screenHeight - 155,
-                child: Image.network(
-                  'https://image.cnbcfm.com/api/v1/image/106811484-1608045351058-gettyimages-1126750618-dsc_1540.jpeg?v=1608045431',
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            const SliverToBoxAdapter(
               child: AboutUs(),
             ),
-            const SliverToBoxAdapter(
-              child: Services(),
-            ),
+            // SliverToBoxAdapter(
+            //   child: Services(),
+            // ),
             SliverToBoxAdapter(
               child: Footer(),
             ),
+            // SliverToBoxAdapter(
+            //   child: SizedBox(height: 2000),
+            // )
           ],
         ),
       ),

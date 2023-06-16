@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../providers/is_expanded.dart';
+import '../../providers/is_expanded.dart';
 
 class NavigationItems extends ConsumerStatefulWidget {
   const NavigationItems(this.title, {super.key});
@@ -18,6 +18,8 @@ class NavigationItems extends ConsumerStatefulWidget {
 class _NavigationItemState extends ConsumerState<NavigationItems> {
   @override
   Widget build(context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     final isExpanded = ref.watch(isExpandedProvider);
     return Container(
       alignment: AlignmentDirectional.center,
@@ -29,7 +31,8 @@ class _NavigationItemState extends ConsumerState<NavigationItems> {
         child: Text(
           widget.title,
           style: GoogleFonts.openSans(
-            fontSize: 16.0,
+            fontSize:
+                screenWidth > 1200 ? 15 : (screenWidth - 800) / 120 + 10.0,
             fontWeight: FontWeight.bold,
             // fontWeight: FontWeight.w900,
             color: !isExpanded ? Colors.white : Colors.black,
