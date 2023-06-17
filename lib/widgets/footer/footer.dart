@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:website/compartments/footer_mobile.dart';
-import 'package:website/compartments/footer_desktop.dart';
-import 'package:website/compartments/footer_tablet.dart';
+import 'package:website/widgets/footer/footer_mobile.dart';
+import 'package:website/widgets/footer/footer_desktop.dart';
+import 'package:website/widgets/footer/footer_tablet.dart';
 
 Color footerTextColor = const Color.fromARGB(255, 204, 204, 0);
 

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/service_card.dart';
+import 'service_card.dart';
 
 class Services extends StatelessWidget {
   const Services({super.key});
 
   @override
   Widget build(context) {
-    final _screenHeight = MediaQuery.of(context).size.height;
+    final screenHeight = MediaQuery.of(context).size.height;
 
     return Container(
       width: double.infinity,
-      height: _screenHeight - 50,
+      height: screenHeight - 50,
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [
@@ -32,7 +32,7 @@ class Services extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
           ),
-          const SizedBox(height: 150),
+          const SizedBox(height: 100),
           const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
